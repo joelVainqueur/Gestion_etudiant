@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+
+		{% block stylesheets %}
+			<!-- Bootstrap CSS -->
+			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+			<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+			<link href="{{ asset('/css/bootstrap.css') }}" type="text/css" rel="stylesheet"/>
+			<link href="{{ asset('/css/bootstrap-grid.css') }}" type="text/css" rel="stylesheet"/>
+
+		{% endblock %}
+
+	</head>
+	<body>
+		{% block body %}{% endblock %}
+		{% block javascripts %}
+			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+			<script src="js/style.js"></script>
+			<script src="{{asset('js/style.js')}}"></script>
+			<script src="{{asset('js/ajax.js')}}"></script>
+		{% endblock %}
+
+	</body>
 </html>

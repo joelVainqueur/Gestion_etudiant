@@ -1,0 +1,114 @@
+#easy_admin:
+#    entities:
+#        # List the entity class name you want to manage
+#        - App\Entity\Product
+#        - App\Entity\Category
+#        - App\Entity\User
+
+easy_admin:
+  #mise en forme de la page 
+    site_name: 'JSN'
+    design:
+      
+      brand_color: '#1ABC9C'
+    
+      
+      
+    
+      
+    entities:
+      #part entities Student
+      Matiere:
+        class: App\Entity\Matiere
+      Professeur:
+        class: App\Entity\Professeur
+      Student:
+        class: App\Entity\Student
+        label: 'Etudiants'
+        list:
+          title: 'Liste des étudiants'
+          actions:
+             - { name: 'show', label: false ,icon: 'eye', css_class: btn btn-secondary }
+             - { name: 'edit', label: false ,icon: 'pencil', css_class: btn btn-primary }
+             - { name: 'delete', label: false ,icon: 'trash', css_class: btn btn-danger}
+          fields: 
+            - {property: 'id', label: '#Numéro'}
+            - { property: 'name', label: 'Nom'}
+            - { property: 'firstName', label: "Prénom"}
+            - { property: 'email', label: "E-mail"}
+            - { property: 'phone', label: "Téléphone"}
+            - { property: 'nationality', label: "Nationnalité"}
+            - { property: 'birthday',format: 'j/n/Y', label: "Date de naissance"}
+            - { property: 'studentsClasse', label: "Classe"}
+          
+        edit:
+          fields: 
+            - { property: 'studentsClasse', label: "Classe"}
+            - { property: 'name', label: 'Nom'}
+            - { property: 'firstName', label: "Prénom"}
+            - { property: 'Email',type: 'text' ,label: "E-mail"}
+            - { property: 'phone',type: 'number', label: "Téléphone"}
+            - { property: 'nationality', label: "Nationnalité"}
+            - { property: 'birthday',type: 'date', label: "Date de naissance"}
+
+        form:
+          fields: 
+            - { property: 'name', label: 'Nom'}
+            - { property: 'firstName', label: "Prénom"}
+            - { property: 'Email',type: 'text' ,label: "E-mail"}
+            - { property: 'phone',type: 'number', label: "Téléphone"}
+            - { property: 'nationality', label: "Nationnalité"}
+            - { property: 'birthday',type: 'date', label: "Date de naissance"}
+            - { property: 'studentsClasse', label: "Classe"}
+
+        show:
+          fields: 
+            - { property: 'name', label: 'Nom'}
+            - { property: 'firstName', label: "Prénom"}
+            - { property: 'Email',label: "E-mail"}
+            - { property: 'phone',type: 'tel', label: "Téléphone"}
+            - { property: 'nationality', label: "Nationnalité"}
+            - { property: 'birthday',format: 'd/m/y', label: "Date de naissance"}
+            - { property: 'studentsClasse', label: "Classe"}
+
+            
+      #part entities classe
+      Classe:
+        class: App\Entity\Classe
+        label: 'Classes'
+        list:
+          title: 'Liste des étudiants'
+          actions:
+            - { name: 'show', label: false ,icon: 'eye', css_class: btn btn-secondary }
+            - { name: 'edit', label: false ,icon: 'pencil', css_class: btn btn-primary }
+            - { name: 'delete', label: false ,icon: 'trash', css_class: btn btn-danger}
+            
+          fields: 
+            - {property: 'id', label: 'Numéro'}
+            - { property: 'name', label: 'Nom de la classe'}
+            - { property: 'students', label: "Nombre d'etudiant"}
+            - { property: 'professeurs', label: "Nombre de professeurs"}
+
+
+        edit:
+          fields:
+            - { property: 'name', label: 'Nom de la classe'}
+            - { property: 'students', label: "Etudiants"}
+            - { property: 'professeurs', label: "professeurs"}
+            
+
+        form:
+          fields:
+            - { property: 'name', label: 'Nom de la classe'}
+            - { property: 'students', label: "Etudiants"}
+        show:
+          fields:
+            - { property: 'name', label: 'Nom de la classe'}
+            - { property: 'students', label: "Etudiants"}
+            - { property: 'professeurs', label: "Professeurs"}
+                
+
+
+
+
+
