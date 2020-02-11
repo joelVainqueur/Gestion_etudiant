@@ -6,11 +6,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 Use App\Entity\Classe;
+Use App\Entity\User;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StudentRepository")
  */
-class Student
+class Student extends User
 {
     /**
      * @ORM\Id()
@@ -32,11 +33,6 @@ class Student
     
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $phone;
@@ -55,6 +51,8 @@ class Student
      * @ORM\ManyToOne(targetEntity="App\Entity\Classe", inversedBy="students")
      */
     private $studentsClasse;
+
+    
 
 
     public function getId(): ?int
@@ -87,19 +85,6 @@ class Student
     }
 
     
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
     public function getPhone(): ?int
     {
         return $this->phone;
@@ -153,10 +138,5 @@ class Student
 
         return $this;
     }
-
  
-
- 
-
-
 }

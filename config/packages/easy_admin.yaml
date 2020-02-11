@@ -18,10 +18,6 @@ easy_admin:
       
     entities:
       #part entities Student
-      Matiere:
-        class: App\Entity\Matiere
-      Professeur:
-        class: App\Entity\Professeur
       Student:
         class: App\Entity\Student
         label: 'Etudiants'
@@ -40,6 +36,7 @@ easy_admin:
             - { property: 'nationality', label: "Nationnalité"}
             - { property: 'birthday',format: 'j/n/Y', label: "Date de naissance"}
             - { property: 'studentsClasse', label: "Classe"}
+            - { property: 'notes', label: "notes"}
           
         edit:
           fields: 
@@ -50,6 +47,7 @@ easy_admin:
             - { property: 'phone',type: 'number', label: "Téléphone"}
             - { property: 'nationality', label: "Nationnalité"}
             - { property: 'birthday',type: 'date', label: "Date de naissance"}
+            
 
         form:
           fields: 
@@ -70,14 +68,92 @@ easy_admin:
             - { property: 'nationality', label: "Nationnalité"}
             - { property: 'birthday',format: 'd/m/y', label: "Date de naissance"}
             - { property: 'studentsClasse', label: "Classe"}
+            - { property: 'notes', label: "notes"}
 
+      #session  professeur
+      Professeur:
+        class: App\Entity\Professeur
+        label: 'Professeurs'
+        list:
+          title: 'Liste des Professeurs'
+          actions:
+             - { name: 'show', label: false ,icon: 'eye', css_class: btn btn-secondary }
+             - { name: 'edit', label: false ,icon: 'pencil', css_class: btn btn-primary }
+             - { name: 'delete', label: false ,icon: 'trash', css_class: btn btn-danger}
+          fields: 
+            - {property: 'id', label: '#Numéro'}
+            - { property: 'professeurName', label: 'Nom'}
+            - { property: 'professeurFirstName', label: "Prénom"}
+            - { property: 'MatiereEnseigner', label: "Matière Enseigner"}
+            - { property: 'EnseigneClasses', label: "Classe affectée"}
             
+          
+        edit:
+          fields: 
+            
+            - { property: 'professeurName', label: 'Nom'}
+            - { property: 'professeurFirstName', label: "Prénom"}
+            - { property: 'MatiereEnseigner', label: "Matière Enseigner"}
+            - { property: 'EnseigneClasses', label: "Classe affectée"}
+
+        form:
+          fields: 
+            
+            - { property: 'professeurName', label: 'Nom'}
+            - { property: 'professeurFirstName', label: "Prénom"}
+            - { property: 'MatiereEnseigner', label: "Matière Enseigner"}
+            - { property: 'EnseigneClasses', label: "Classe affectée"}
+
+        show:
+          fields: 
+            - {property: 'id', label: '#Numéro'}
+            - { property: 'professeurName', label: 'Nom'}
+            - { property: 'professeurFirstName', label: "Prénom"}
+            - { property: 'MatiereEnseigner', label: "Matière Enseigner"}
+            - { property: 'EnseigneClasses', label: "Classe affectée"}
+            - { property: 'notes', label: "notes"}
+          
+      Note:
+        class: App\Entity\Note
+      
+      #session MAtière
+      Matiere:
+        class: App\Entity\Matiere
+        label: 'Matières'
+        list:
+          title: 'Liste des Matiere'
+          actions:
+             - { name: 'show', label: false ,icon: 'eye', css_class: btn btn-secondary }
+             - { name: 'edit', label: false ,icon: 'pencil', css_class: btn btn-primary }
+             - { name: 'delete', label: false ,icon: 'trash', css_class: btn btn-danger}
+          fields: 
+            - {property: 'id', label: '#Numéro'}
+            - { property: 'matiereNAme', label: 'Nom de la matière'}
+            - { property: 'notes', label: "notes"}
+            - { property: 'professeurMatiere', label: "professeurMatiere"}
+           
+        edit:
+          fields: 
+            - { property: 'matiereNAme', label: 'Nom de la matière'}
+        form:
+          fields: 
+            - { property: 'matiereNAme', label: 'Nom de la matière'}
+            - { property: 'professeurMatiere', label: 'Nom'}
+
+        show:
+          fields: 
+            - {property: 'id', label: '#Numéro'}
+            - { property: 'matiereNAme', label: 'Nom de la matière'}
+            - { property: 'notes', label: "notes"}
+            - { property: 'professeurMatiere', label: 'Nom'}
+          
+
       #part entities classe
       Classe:
         class: App\Entity\Classe
         label: 'Classes'
         list:
-          title: 'Liste des étudiants'
+          title: 'Liste des Classes'
           actions:
             - { name: 'show', label: false ,icon: 'eye', css_class: btn btn-secondary }
             - { name: 'edit', label: false ,icon: 'pencil', css_class: btn btn-primary }
@@ -88,10 +164,12 @@ easy_admin:
             - { property: 'name', label: 'Nom de la classe'}
             - { property: 'students', label: "Nombre d'etudiant"}
             - { property: 'professeurs', label: "Nombre de professeurs"}
+            
 
 
         edit:
           fields:
+            - { property: 'notes', label: "notes"}
             - { property: 'name', label: 'Nom de la classe'}
             - { property: 'students', label: "Etudiants"}
             - { property: 'professeurs', label: "professeurs"}
@@ -106,6 +184,7 @@ easy_admin:
             - { property: 'name', label: 'Nom de la classe'}
             - { property: 'students', label: "Etudiants"}
             - { property: 'professeurs', label: "Professeurs"}
+           
                 
 
 

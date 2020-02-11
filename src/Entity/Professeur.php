@@ -38,10 +38,13 @@ class Professeur
      */
     private $EnseigneClasses;
 
+   
+
     public function __construct()
     {
         $this->EnseigneClasses = new ArrayCollection();
         $this->matieres = new ArrayCollection();
+       
     }
 
     public function getId(): ?int
@@ -64,7 +67,7 @@ class Professeur
     
     public function __toString()
     {
-        return $this->getProfesseurName().' '.$this->getProfesseurFirstName().' '. "enseigne ".$this->getMatiereEnseigner();
+        return $this->getProfesseurName().' '.$this->getProfesseurFirstName();
 
     }
 
@@ -120,6 +123,7 @@ class Professeur
         return $this;
     }
 
+   
    
     
 

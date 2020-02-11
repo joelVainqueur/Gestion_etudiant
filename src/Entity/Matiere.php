@@ -5,9 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MatiereRepository")
+ * @UniqueEntity("matiereNAme")
  */
 class Matiere
 {
@@ -23,6 +26,12 @@ class Matiere
      */
     private $matiereNAme;
 
+    
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Professeur", cascade={"persist", "remove"})
+     */
+    private $professeurMatiere;
+
 
    
   
@@ -31,6 +40,7 @@ class Matiere
     {
         $this->professeurs = new ArrayCollection();
         $this->matieres = new ArrayCollection();
+       
     }
 
     public function getId(): ?int
@@ -52,6 +62,19 @@ class Matiere
     public function __toString()
     {
         return $this->matiereNAme;
+    }
+
+
+    public function getProfesseurMatiere(): ?Professeur
+    {
+        return $this->professeurMatiere;
+    }
+
+    public function setProfesseurMatiere(?Professeur $professeurMatiere): self
+    {
+        $this->professeurMatiere = $professeurMatiere;
+
+        return $this;
     }
 
    
