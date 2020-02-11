@@ -36,7 +36,7 @@ easy_admin:
             - { property: 'nationality', label: "Nationnalité"}
             - { property: 'birthday',format: 'j/n/Y', label: "Date de naissance"}
             - { property: 'studentsClasse', label: "Classe"}
-            - { property: 'notes', label: "notes"}
+           
           
         edit:
           fields: 
@@ -68,8 +68,7 @@ easy_admin:
             - { property: 'nationality', label: "Nationnalité"}
             - { property: 'birthday',format: 'd/m/y', label: "Date de naissance"}
             - { property: 'studentsClasse', label: "Classe"}
-            - { property: 'notes', label: "notes"}
-
+            
       #session  professeur
       Professeur:
         class: App\Entity\Professeur
@@ -111,10 +110,9 @@ easy_admin:
             - { property: 'professeurFirstName', label: "Prénom"}
             - { property: 'MatiereEnseigner', label: "Matière Enseigner"}
             - { property: 'EnseigneClasses', label: "Classe affectée"}
-            - { property: 'notes', label: "notes"}
+            
           
-      Note:
-        class: App\Entity\Note
+     
       
       #session MAtière
       Matiere:
@@ -129,7 +127,7 @@ easy_admin:
           fields: 
             - {property: 'id', label: '#Numéro'}
             - { property: 'matiereNAme', label: 'Nom de la matière'}
-            - { property: 'notes', label: "notes"}
+            
             - { property: 'professeurMatiere', label: "professeurMatiere"}
            
         edit:
@@ -144,7 +142,7 @@ easy_admin:
           fields: 
             - {property: 'id', label: '#Numéro'}
             - { property: 'matiereNAme', label: 'Nom de la matière'}
-            - { property: 'notes', label: "notes"}
+            
             - { property: 'professeurMatiere', label: 'Nom'}
           
 
@@ -169,7 +167,7 @@ easy_admin:
 
         edit:
           fields:
-            - { property: 'notes', label: "notes"}
+            
             - { property: 'name', label: 'Nom de la classe'}
             - { property: 'students', label: "Etudiants"}
             - { property: 'professeurs', label: "professeurs"}

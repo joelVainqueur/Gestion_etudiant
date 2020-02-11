@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
 use Doctrine\ORM\Mapping as ORM;
 Use App\Entity\Classe;
-Use App\Entity\User;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StudentRepository")
  */
-class Student extends User
+class Student 
 {
     /**
      * @ORM\Id()
@@ -32,27 +31,34 @@ class Student extends User
 
     
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $phone;
+   
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $nationality;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $birthday;
+   
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Classe", inversedBy="students")
      */
     private $studentsClasse;
 
-    
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $birthday;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $phone;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
 
 
     public function getId(): ?int
@@ -85,17 +91,9 @@ class Student extends User
     }
 
     
-    public function getPhone(): ?int
-    {
-        return $this->phone;
-    }
+   
 
-    public function setPhone(int $phone): self
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
+  
 
     public function getNationality(): ?string
     {
@@ -105,6 +103,26 @@ class Student extends User
     public function setNationality(?string $nationality): self
     {
         $this->nationality = $nationality;
+
+        return $this;
+    }
+
+    
+
+    
+    public function __toString()
+    {
+        return $this->getName().' '.$this->getFirstName();
+    }
+
+    public function getStudentsClasse(): ?Classe
+    {
+        return $this->studentsClasse;
+    }
+
+    public function setStudentsClasse(?Classe $studentsClasse): self
+    {
+        $this->studentsClasse = $studentsClasse;
 
         return $this;
     }
@@ -121,20 +139,26 @@ class Student extends User
         return $this;
     }
 
-    
-    public function __toString()
+    public function getPhone(): ?string
     {
-        return $this->getName().' '.$this->getFirstName();
+        return $this->phone;
     }
 
-    public function getStudentsClasse(): ?Classe
+    public function setPhone(string $phone): self
     {
-        return $this->studentsClasse;
+        $this->phone = $phone;
+
+        return $this;
     }
 
-    public function setStudentsClasse(?Classe $studentsClasse): self
+    public function getEmail(): ?string
     {
-        $this->studentsClasse = $studentsClasse;
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }
